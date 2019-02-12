@@ -1,0 +1,27 @@
+#Simplicity In All Things
+use_bpm 80
+#lh1
+def pattern
+  play_pattern_timed [:e2, :b2], [1]
+  play_chord [:g3, :a3]
+  sleep 1
+  play :c2
+  sleep 1
+  play_chord [:g3, :a3]
+  sleep 0.5
+  play :fs3
+  sleep 0.5
+  play :e3
+  sleep 1
+end
+
+def lowend
+  play :e1, attack: 1.75, attack_level: 1.5, release: 1.25
+  sleep 3
+  play :c1, attack: 1.75, attack_level: 1.5, release: 1.25
+  sleep 3
+end
+
+live_loop :simple do
+  pattern
+end

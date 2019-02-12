@@ -1,0 +1,99 @@
+#Theme song for my good friend's stream, work in progress
+use_bpm 140
+
+def da_drums
+  sample :drum_bass_hard
+  sleep 1
+  sample :drum_snare_hard
+  sleep 1
+end
+
+def hi_hat
+  32.times do
+    sample :drum_cymbal_closed
+    sleep 0.25
+    sample :drum_cymbal_closed
+    sleep 0.25
+    sample :drum_cymbal_open, amp: 0.75
+    sleep 0.5
+  end
+  32.times do
+    sample :drum_cymbal_closed
+    sleep 0.25
+    sample :drum_cymbal_closed
+    sleep 0.25
+    sample :drum_cymbal_closed
+    sleep 0.25
+    sample :drum_cymbal_closed
+    sleep 0.25
+  end
+end
+
+
+
+def bass_v
+  use_synth :chipbass
+  use_synth_defaults amp: 0.8
+  2.times do
+    play_pattern_timed [:g2, :g3, :a2, :a3, :bb2, :bb3, :a2, :a3], 0.5
+  end
+  6.times do
+    play_pattern_timed [:c3, :c4], 0.5
+  end
+  play_pattern_timed [:d3, :c3, :bb2, :a2], 0.5
+end
+
+def indigo
+  use_synth :pulse
+  2.times do
+    play_chord [:bb3, :d4, :g4]
+    sleep 1
+    play_chord [:c4, :f4, :a4]
+    sleep 1
+    play_chord [:d4, :g4, :bb4]
+    sleep 1
+    play_chord [:f4, :a4, :c5]
+    sleep 1.5
+    play_chord [:g4, :bb4, :d5], release: 0.5
+    sleep 0.5
+    play_chord [:d4, :g4, :bb4], release: 0.5
+    sleep 0.5
+    play_chord [:g4, :bb4, :d5]
+    sleep 1
+    play_chord [:d4, :g4, :bb4], release: 1.5
+    sleep 1.5
+    play_chord [:eb4, :g4, :c5]
+    sleep 1
+    play_chord [:f4, :bb4, :d5]
+    sleep 1
+    play_chord [:g4, :c5, :eb5]
+    sleep 1
+    play_chord [:bb4, :d5, :f5]
+    sleep 1.5
+    play_chord [:d5, :g5, :bb5], release: 0.5
+    sleep 0.5
+    play_chord [:bb4, :d5, :g5], release: 0.5
+    sleep 0.5
+    play_chord [:d5, :g5, :bb5]
+    sleep 1
+    play_chord [:bb4, :d5, :g5], release: 1.5
+    sleep 1.5
+  end
+  play_chord [:d5, :g5, :bb5], sustain: 1, decay: 0.5
+  sleep 32
+end
+
+live_loop :drums do
+  da_drums
+end
+
+live_loop :cymbals do
+  hi_hat
+end
+
+live_loop :bassy do
+  bass_v
+end
+live_loop :words do
+  indigo
+end

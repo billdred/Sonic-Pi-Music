@@ -1,0 +1,513 @@
+#Ironwood I
+use_bpm 72
+use_synth :sine
+#Violin I Patterns
+def v1f6
+  6.times do
+    play :f5, amp: 0.1
+    sleep 1
+  end
+end
+
+def v1f5
+  5.times do
+    play :f5, amp: 0.1
+    sleep 1
+  end
+end
+
+def v1fc
+  play :f5, release: 0.5, amp: 0.35
+  sleep 0.5
+  play :c5, release: 0.5, amp: 0.1
+  sleep 0.5
+end
+
+def v1bb4
+  4.times do
+    play :bb4, amp: 0.1
+    sleep 1
+  end
+end
+
+def v1bbc
+  play :bb4, release: 0.5, amp: 0.35
+  sleep 0.5
+  play :c5, amp: 0.1
+  sleep 0.5
+end
+
+def v1dbc
+  play :db5, release: 0.5, amp: 0.35
+  sleep 0.5
+  play :c5, amp: 0.1
+  sleep 0.5
+end
+
+def v1m27
+  16.times do
+    play :f4
+    play :db5
+    sleep 1
+  end
+end
+
+def v1melpt
+  3.times do
+    play :c5, amp: 0.7
+    sleep 1
+  end
+  play :c5, amp: 0.2, release: 0.5
+  sleep 0.5
+  play :bb4, amp: 0.7, release: 0.5
+  sleep 0.5
+  play :c5, amp: 0.7, release: 0.5
+  sleep 1
+end
+
+def v1mel
+  v1melpt
+  play_pattern_timed [:c5, :bb4, :c5, :db5, :c5, :bb4], 0.5, amp: 0.7
+  v1melpt
+  play_pattern_timed [:c5, :bb4, :c5, :e5, :db5, :c5], 0.5, amp: 0.7
+end
+
+#Violin I Part
+def v1pt
+  4.times do
+    v1f6
+    v1fc
+  end
+  5.times do
+    play :f5
+    sleep 1
+  end
+  play :f5, release: 0.5, amp: 0.35
+  sleep 0.5
+  play :db5, release: 0.5, amp: 0.1
+  sleep 0.5
+  6.times do
+    v1f5
+    v1fc
+  end
+  4.times do
+    play :f5, amp: 0.1
+    sleep 1
+  end
+  v1fc #measure 19 beat 3
+  3.times do
+    v1bb4
+    v1bbc
+  end
+  v1bb4
+  v1dbc
+  v1bb4
+  v1bbc #measure 25
+  play :bb4, amp: 0.1
+  sleep 1
+  v1bbc
+  play :db5, amp: 0.35
+  sleep 1 #measure 26
+  v1m27
+  v1mel
+  v1m27 #measure 38
+  2.times do
+    sleep 1
+    play :c5, amp: 0.8, release: 2
+    sleep 3
+  end
+  sleep 1
+  play :c5, amp: 0.2, release: 0.5
+  sleep 0.5
+  play :bb4, amp: 0.8, release: 1.5
+  sleep 3.5
+  play :bb4, amp: 0.7, release: 2
+  sleep 3
+  2.times do
+    sleep 1
+    play :bb4, release: 2
+    sleep 3
+  end
+  2.times do
+    sleep 1
+    play :bb4, amp: 0.35, release: 2
+    sleep 3
+  end
+  2.times do
+    sleep 1
+    play :bb4, amp: 0.2, release: 2
+    sleep 3
+  end
+  sleep 6
+  sleep 2
+  play :bb4, amp: 0.1, release: 4
+  sleep 5
+  play :a4, amp: 0.1, attack: 0.1, decay: 7, release: 0.5
+end
+
+#Violin II Patterns
+def v2ab9
+  9.times do
+    play :ab4, amp: 0.1
+    sleep 1
+  end
+end
+
+def v2ab7
+  7.times do
+    play :ab4, amp: 0.1
+    sleep 1
+  end
+end
+
+def v2ab6
+  6.times do
+    play :ab4, amp: 0.1
+    sleep 1
+  end
+end
+
+def v2abg
+  play :ab4, release: 0.5, amp: 0.35
+  sleep 0.5
+  play :g4, release: 0.5, amp: 0.1
+  sleep 0.5
+end
+
+def v2m27
+  16.times do
+    play :ab4
+    sleep 1
+  end
+end
+
+def v2medpt
+  3.times do
+    play :ab4, amp: 0.7
+    sleep 1
+  end
+  play :ab4, release: 0.5, amp: 0.2
+  sleep 0.5
+  play :g4, release: 0.5, amp: 0.7
+  sleep 0.5
+  play :ab4, amp: 0.7
+  sleep 1
+end
+
+def v2med
+  v2medpt
+  play_pattern_timed [:ab4, :g4, :ab4, :bb4, :ab4, :g4], 0.5, amp: 0.7
+  v2medpt
+  play_pattern_timed [:ab4, :g4, :ab4, :c5, :bb4, :g4], 0.5, amp: 0.7
+end
+
+#Violin II Part
+def v2pt
+  4.times do
+    v2ab9
+    v2abg
+  end
+  4.times do
+    v2ab7
+    v2abg
+  end
+  4.times do
+    v2ab6
+  v2abg  end #measure 25
+  2.times do
+    play :ab4
+    sleep 1
+  end
+  v2abg #measure 26
+  v2m27
+  v2med
+  v2m27 #measure 38
+  4.times do
+    sleep 1
+    play :ab4, amp: 0.8, release: 2
+    sleep 3
+  end
+  sleep 1
+  play :ab4, amp: 0.7, release: 0.5
+  sleep 0.5
+  play :g4, amp: 0.2, release: 1.5
+  sleep 2.5
+  2.times do
+    sleep 1
+    play :g4, amp: 0.35, release: 2
+    sleep 3
+  end
+  sleep 1
+  play :g4, amp: 0.35, release: 0.5
+  sleep 0.5
+  play :f4, amp: 0.2, release: 1.5
+  sleep 2.5
+  2.times do
+    sleep 1
+    play :f4, amp: 0.2, release: 2
+    sleep 3
+  end
+  sleep 6
+  sleep 2
+  play :f4, amp: 0.1, release: 4
+  sleep 5
+  play :f4, amp: 0.1, attack: 0.1, decay: 7, release: 0.5
+end
+
+#Viola Patterns
+def vppt1
+  play_pattern_timed [:g3, :g3, :ab3, :ab3, :db3, :db3, :db3, :f3, :g3, :g3, :ab3, :ab3, :c4, :db4, :e3, :db3, :g3], 1, amp: 0.35
+end
+
+def vppt2
+  play_pattern_timed [:ab3, :ab3, :db3, :db3, :e3, :e3, :g3, :g3, :ab3, :ab3, :ab3, :g3], 1, amp: 0.35
+end
+
+def vacdb
+  play :c3, amp: 0.35, release: 0.5
+  sleep 0.5
+  play :db3, amp: 0.1, release: 0.5
+  sleep 0.5
+end
+
+def va32
+  3.times do
+    play :c3, amp: 0.1
+    sleep 1
+  end
+  vacdb
+  2.times do
+    play :c3, amp: 0.1
+    sleep 1
+  end
+  vacdb
+end
+
+def vagp
+  3.times do
+    play :g3, amp: 0.7
+    sleep 1
+  end
+  play :g3, amp: 0.8, release: 0.5
+  sleep 0.5
+  play :f3, amp: 0.7, release: 0.5
+  sleep 0.5
+  2.times do
+    play :g3, amp: 0.7
+    sleep 1
+  end
+  play_pattern_timed [:g3, :ab3, :g3, :f3], 0.5, amp: 0.7
+  3.times do
+    play :g3, amp: 0.7
+    sleep 1
+  end
+  play :g3, amp: 0.8, release: 0.5
+  sleep 0.5
+  play :f3, amp: 0.7, release: 0.5
+  sleep 0.5
+  play :g3, amp: 0.7
+  sleep 1
+  play_pattern_timed [:g3, :e3, :g3, :ab3, :g3, :f3], 0.5, amp: 0.7
+end
+
+
+
+#Viola Part
+def vapt
+  sleep 16
+  vppt1
+  play :g3, amp: 0.2, release: 0.5
+  sleep 0.5
+  play :ab3, amp: 0.35, release: 0.5
+  sleep 0.5
+  vppt2
+  play :f3, amp: 0.2, release: 0.5
+  sleep 0.5
+  play :e3, amp: 0.35, release: 0.5
+  sleep 0.5
+  play :db3, amp: 0.35
+  sleep 1
+  7.times do
+    va32
+  end
+  3.times do
+    play :c3, amp: 0.1
+    sleep 1
+  end
+  vacdb
+  2.times do
+    play :c3, amp: 0.1
+    sleep 1
+  end
+  vagp
+  16.times do
+    play :ab3
+    sleep 1
+  end
+  vagp #measure 38
+  3.times do
+    sleep 1
+    play :g4, amp: 0.8, release: 2
+    sleep 3
+  end
+  sleep 1
+  play :g4, amp: 2, release: 0.5
+  sleep 0.5
+  play :f4, amp: 0.8, release: 1.5
+  sleep 2.5
+  2.times do
+    sleep 1
+    play :f4, amp: 0.2, release: 2
+    sleep 3
+  end
+  sleep 1
+  play :f4, amp: 0.2, release: 0.5
+  sleep 0.5
+  play :e4, amp: 0.35, release: 1.5
+  sleep 2.5
+  2.times do
+    sleep 1
+    play :e4, amp: 0.35, release: 2
+    sleep 3
+  end
+  sleep 1
+  play :e4, amp: 0.35, release: 0.5
+  sleep 0.5
+  play :db4, amp: 0.2, release: 8.5
+  sleep 8.5
+  sleep 2
+  play :db4, amp: 0.1, release: 4
+  sleep 5
+  play :c4, amp: 0.1, attack: 0.1, decay: 7, release: 0.5
+end
+
+#Cello Patterns
+def cppt1
+  play_pattern_timed [:g2, :g2, :ab2, :ab2, :db2, :db2, :e2], 1
+end
+def ce2f2
+  play :e2, release: 0.5, amp: 2
+  sleep 0.5
+  play :f2, release: 0.5
+  sleep 0.5
+end
+def cppt2
+  play_pattern_timed [:g2, :g2, :ab2, :ab2, :db2, :db2], 1
+end
+
+def cgab
+  play :g2, release: 0.5, amp: 0.35
+  sleep 0.5
+  play :ab2, release: 0.5, amp: 0.1
+  sleep 0.5
+end
+
+def cl32
+  3.times do
+    play :g2, amp: 0.1
+    sleep 1
+  end
+  cgab
+  2.times do
+    play :g2, amp: 0.1
+    sleep 1
+  end
+  cgab
+end
+
+def cdbp
+  3.times do
+    play :db3, amp: 0.7
+    sleep 1
+  end
+  play :db3, amp: 0.8, release: 0.5
+  sleep 0.5
+  play :c3, amp: 0.7, release: 0.5
+  sleep 0.5
+  2.times do
+    play :db3, amp: 0.7
+    sleep 1
+  end
+  play_pattern_timed [:db3, :f3, :db3, :c3], 0.5, amp: 0.7
+  3.times do
+    play :db3, amp: 0.7
+    sleep 1
+  end
+  play :db3, amp: 0.8, release: 0.5
+  sleep 0.5
+  play :c3, amp: 0.7, release: 0.5
+  sleep 0.5
+  play :db3, amp: 0.7
+  sleep 1
+  play_pattern_timed [:db3, :c3, :db3, :f3, :db3, :c3], 0.5, amp: 0.7
+end
+
+def cfc5
+  16.times do
+    play :f2
+    play :c3
+    sleep 1
+  end
+end
+
+#Cello Part
+def cpt
+  sleep 52
+  2.times do
+    cppt1
+    ce2f2
+    cppt2
+    ce2f2
+  end
+  3.times do
+    cl32
+  end #measure 26
+  cdbp
+  cfc5
+  cdbp #measure 38
+  4.times do
+    play :f2, amp: 0.8, release: 3
+    play :c3, amp: 0.8, release: 3
+    sleep 4
+  end
+  2.times do
+    play :f2, release: 3
+    play :c3, release: 3
+    sleep 4
+  end
+  2.times do
+    play :f2, release: 3, amp: 0.35
+    play :c3, release: 3, amp: 0.35
+    sleep 4
+  end
+  2.times do
+    play :f2, release: 3, amp: 0.2
+    play :c3, release: 3, amp: 0.2
+    sleep 4
+  end
+  sleep 6
+  sleep 2
+  play :f2, release: 4, amp: 0.1
+  play :c3, release: 4, amp: 0.1
+  sleep 5
+  play :f2, amp: 0.1, attack: 0.1, decay: 7, release: 0.5
+  play :c3, amp: 0.1, attack: 0.1, decay: 7, release: 0.5
+end
+
+
+
+#buildIronwood
+with_fx :reverb do
+  in_thread do
+    v1pt
+  end
+  in_thread do
+    v2pt
+  end
+  in_thread do
+    vapt
+  end
+  in_thread do
+    cpt
+  end
+end
